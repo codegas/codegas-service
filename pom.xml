@@ -6,15 +6,52 @@
 
     <parent>
         <groupId>org.codegas</groupId>
-        <artifactId>grapp-pom-lib</artifactId>
+        <artifactId>codegas-pom-lib</artifactId>
         <version>1.1.1</version>
     </parent>
 
     <artifactId>codegas-service</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <name>${project.groupId}:${project.artifactId}</name>
+
+    <scm>
+        <connection>scm:git:git://github.com/codegas/codegas-service.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/codegas/codegas-service.git</developerConnection>
+        <url>http://github.com/codegas/codegas-service/tree/master</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <!-- Compilation Versions -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- Dependency Versions -->
+        <spring.version>4.3.14.RELEASE</spring.version>
+    </properties>
 
     <dependencyManagement>
+        <dependencies>
+            <!-- Codegas Dependencies -->
+            <dependency>
+                <groupId>org.codegas</groupId>
+                <artifactId>codegas-commons</artifactId>
+                <version>2.0.0</version>
+            </dependency>
 
+            <!-- Third Party Dependencies -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+        </dependencies>
     </dependencyManagement>
 
     <dependencies>

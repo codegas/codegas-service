@@ -10,7 +10,7 @@
 
     <artifactId>codegas-service</artifactId>
     <version>1.0.2-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
 
     <scm>
@@ -19,6 +19,13 @@
         <url>http://github.com/codegas/codegas-service/tree/master</url>
         <tag>HEAD</tag>
     </scm>
+
+    <modules>
+        <module>codegas-service-api</module>
+        <module>codegas-service-jpa</module>
+        <module>codegas-service-test</module>
+        <module>codegas-service-spock</module>
+    </modules>
 
     <properties>
         <!-- Compilation Versions -->
@@ -31,6 +38,23 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Project Dependencies -->
+            <dependency>
+                <groupId>org.codegas</groupId>
+                <artifactId>codegas-service-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codegas</groupId>
+                <artifactId>codegas-service-jpa</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codegas</groupId>
+                <artifactId>codegas-service-test</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <!-- Codegas Dependencies -->
             <dependency>
                 <groupId>org.codegas</groupId>
@@ -40,8 +64,33 @@
 
             <!-- Third Party Dependencies -->
             <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>2.4.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.spockframework</groupId>
+                <artifactId>spock-core</artifactId>
+                <version>1.0-groovy-2.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-orm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
                 <version>${spring.version}</version>
             </dependency>
             <dependency>
@@ -51,30 +100,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <!-- Codegas Compile Dependencies -->
-        <dependency>
-            <groupId>org.codegas</groupId>
-            <artifactId>codegas-commons</artifactId>
-        </dependency>
-
-        <!-- Third Party Compile Dependencies -->
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>javax.persistence-api</artifactId>
-        </dependency>
-
-        <!-- Third Party Provided Dependencies -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
 </project>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.codegas</groupId>
+        <artifactId>codegas-service</artifactId>
+        <version>1.0.2-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>codegas-service-spock</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- Project Compile Dependencies -->
+        <dependency>
+            <groupId>org.codegas</groupId>
+            <artifactId>codegas-service-test</artifactId>
+        </dependency>
+
+        <!-- Project Provided Dependencies -->
+        <dependency>
+            <groupId>org.codegas</groupId>
+            <artifactId>codegas-service-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Codegas Compile Dependencies -->
+        <dependency>
+            <groupId>org.codegas</groupId>
+            <artifactId>codegas-commons</artifactId>
+        </dependency>
+
+        <!-- Third Party Compile Dependencies -->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+
+        <!-- Third Party Provided Dependencies -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.bluetrainsoftware.maven</groupId>
+                <artifactId>groovydoc-maven-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-docs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-docs</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <!-- Groovy Compilation -->
+                    <compilerId>groovy-eclipse-compiler</compilerId>
+                </configuration>
+                <dependencies>
+                    <!-- Groovy Compilation Dependencies -->
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-eclipse-compiler</artifactId>
+                        <version>2.9.2-01</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-eclipse-batch</artifactId>
+                        <version>2.4.3-01</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -17,5 +17,12 @@
             <groupId>org.codegas</groupId>
             <artifactId>codegas-commons</artifactId>
         </dependency>
+
+        <!-- Third Party Provided Dependencies -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>

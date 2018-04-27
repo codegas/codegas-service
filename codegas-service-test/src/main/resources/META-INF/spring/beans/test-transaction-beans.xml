@@ -6,7 +6,7 @@
                            http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-lazy-init="true">
 
-    <import resource="classpath:META-INF/spring/beans/transaction-beans.xml"/>
+    <import resource="classpath:META-INF/spring/beans/transaction-beans-jpa.xml"/>
 
     <!-- A TestEntityManager to use with Persistence Tests -->
     <bean id="testEntityManager" class="org.codegas.service.test.TestEntityManager">
